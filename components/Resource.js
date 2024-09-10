@@ -6,7 +6,7 @@ import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { Input } from './ui/input';
-import { Bell, BookOpen, Download, FileText, Filter, Plus, Search } from 'lucide-react';
+import { Accessibility, Bell, BookOpen, Download, FileText, Filter, Plus, Search } from 'lucide-react';
 import { Poppins } from 'next/font/google';
 
 const poppins = Poppins({
@@ -90,6 +90,7 @@ export default function Resource() {
                 <Badge>Interview</Badge>
                 <Badge>Soft Skills</Badge>
               </div>
+
               <Button className="w-full">Access Resource</Button>
             </CardContent>
           </Card>

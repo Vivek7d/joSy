@@ -1,130 +1,173 @@
-import { Bell, ChevronRight, Search } from 'lucide-react'
 import React from 'react'
+import { Bell, BookOpen, Briefcase, Search, User } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Progress } from "@/components/ui/progress"
 import { Poppins } from 'next/font/google';
 
 const poppins = Poppins({
-    weight: ["100", "400", "500", "600", "700", "800"],
-    subsets: ["latin"],
-  });
+  weight: ["100", "400", "500", "600", "700", "800"],
+  subsets: ["latin"],
+});
 export default function Dashboard() {
+  // Mock data - in a real app, this would come from API calls or server-side props
+  const user = {
+    name: "Alice Johnson",
+    progress: 75,
+    savedSearches: ["Software Engineer", "Frontend Developer"]
+  }
+
+  const jobSuggestions = [
+    { title: "Senior React Developer", company: "TechCorp", matchPercentage: 95 },
+    { title: "Full Stack Engineer", company: "WebSolutions", matchPercentage: 88 },
+    { title: "UI/UX Designer", company: "DesignHub", matchPercentage: 82 }
+  ]
+
+  const featuredJobs = [
+    { title: "Data Scientist", company: "AI Innovations", type: "Full-time" },
+    { title: "Marketing Intern", company: "BrandBoost", type: "Internship" },
+    { title: "Product Manager", company: "SaaS Solutions", type: "Contract" }
+  ]
+
   return (
-
-    
-      <main className={`${poppins.className} flex-1 overflow-y-auto`}>
-        {/* Header */}
-        <header className="bg-white shadow-sm">
-          <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-            <h1 className="text-2xl font-semibold text-gray-900">Welcome, Rahul!</h1>
-            <div className="flex items-center">
-              <div className="relative mr-4">
-                <input
-                  type="text"
-                  placeholder="Search jobs..."
-                  className="w-64 pl-10 pr-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-blue-500"
-                />
-                <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-              </div>
-              <button className="p-2 text-gray-400 hover:text-gray-500">
-                <Bell className="h-6 w-6" />
-              </button>
-            </div>
-          </div>
-        </header>
-
-        {/* Dashboard Content */}
-        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-          {/* Progress Tracker */}
-          <div className="bg-white shadow rounded-lg mb-6 p-4">
-            <h2 className="text-xl font-semibold mb-4">Your Progress</h2>
-            <div className="flex justify-between items-center">
-              <div className="w-2/3 bg-gray-200 rounded-full h-4">
-                <div className="bg-blue-600 h-4 rounded-full" style={{ width: '70%' }}></div>
-              </div>
-              <span className="text-sm font-medium text-gray-500">70% Complete</span>
-            </div>
-            <p className="mt-2 text-sm text-gray-600">Complete your profile to increase your chances of getting hired!</p>
-          </div>
-
-          {/* Job Board and AI Recommendations */}
-          <div className="grid grid-cols-3 gap-6 mb-6">
-            <div className="col-span-2 bg-white shadow rounded-lg p-4">
-              <h2 className="text-xl font-semibold mb-4">Job Board</h2>
-              <div className="space-y-4">
-                {/* Job listing example */}
-                <div className="border-b pb-4">
-                  <h3 className="text-lg font-medium text-blue-600">Software Developer</h3>
-                  <p className="text-sm text-gray-500">TechCorp India • Jaipur, Rajasthan</p>
-                  <p className="text-sm text-gray-600 mt-2">Full-time • 2-5 years experience</p>
-                  <div className="mt-2 flex items-center">
-                    <span className="text-sm font-medium text-green-600">New</span>
-                    <ChevronRight className="h-4 w-4 text-gray-400 ml-2" />
-                  </div>
-                </div>
-                {/* More job listings would go here */}
-              </div>
-              <button className="mt-4 text-blue-600 hover:text-blue-800 text-sm font-medium">
-                View All Jobs
-              </button>
-            </div>
-            <div className="bg-white shadow rounded-lg p-4">
-              <h2 className="text-xl font-semibold mb-4">AI Recommendations</h2>
-              <div className="space-y-4">
-                <div className="border-b pb-4">
-                  <h3 className="text-lg font-medium text-blue-600">Data Analyst Intern</h3>
-                  <p className="text-sm text-gray-500">DataTech Solutions • Remote</p>
-                  <div className="mt-2 flex items-center">
-                    <span className="text-sm font-medium text-purple-600">98% Match</span>
-                    <ChevronRight className="h-4 w-4 text-gray-400 ml-2" />
-                  </div>
-                </div>
-                {/* More AI recommendations would go here */}
-              </div>
-            </div>
-          </div>
-
-          {/* Counseling and Profile */}
-          <div className="grid grid-cols-3 gap-6 mb-6">
-            <div className="col-span-2 bg-white shadow rounded-lg p-4">
-              <h2 className="text-xl font-semibold mb-4">Counseling & Guidance</h2>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="border rounded-lg p-4">
-                  <h3 className="text-lg font-medium mb-2">Book a Session</h3>
-                  <p className="text-sm text-gray-600 mb-4">Get personalized career advice from our experts.</p>
-                  <button className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">
-                    Schedule Now
-                  </button>
-                </div>
-                <div className="border rounded-lg p-4">
-                  <h3 className="text-lg font-medium mb-2">Resume Review</h3>
-                  <p className="text-sm text-gray-600 mb-4">Get your resume reviewed by industry professionals.</p>
-                  <button className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700">
-                    Upload Resume
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white shadow rounded-lg p-4">
-              <h2 className="text-xl font-semibold mb-4">Profile Completion</h2>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">Personal Information</span>
-                  <span className="text-sm text-green-600">Complete</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">Education</span>
-                  <span className="text-sm text-yellow-600">In Progress</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">Skills</span>
-                  <span className="text-sm text-red-600">Incomplete</span>
-                </div>
-                <button className="mt-4 w-full bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">
-                  Complete Profile
-                </button>
-              </div>
-            </div>
-          </div>
+    <div className={`${poppins.className} container mx-auto px-4 py-8`}>
+      {/* Personalized Welcome Section */}
+      <section className="mb-8">
+        <h1 className="text-3xl font-bold mb-4">Welcome back, Rahul!</h1>
+        <div className="flex items-center mb-4">
+          <Progress value={70} className="w-1/2 mr-4" />
+          <span className="text-sm text-muted-foreground">Profile completion: {user.progress}%</span>
         </div>
-      </main>
+        <div className="flex flex-wrap gap-2">
+          {user.savedSearches.map((search, index) => (
+            <Button key={index} variant="outline" size="sm">{search}</Button>
+          ))}
+        </div>
+      </section>
+
+      {/* Quick Job Search Section */}
+      <section className="mb-8">
+        <Card>
+          <CardHeader>
+            <CardTitle>Quick Job Search</CardTitle>
+            <CardDescription>Find your next opportunity</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form className="flex gap-4">
+              <Input placeholder="Job title, keywords, or company" className="flex-grow" />
+              <Input placeholder="Location" className="w-1/4" />
+              <Button type="submit">
+                <Search className="mr-2 h-4 w-4" /> Search
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Job Match Suggestions Section */}
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">AI-Recommended Jobs</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {jobSuggestions.map((job, index) => (
+            <Card key={index}>
+              <CardHeader>
+                <CardTitle>{job.title}</CardTitle>
+                <CardDescription>{job.company}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-medium">Match:</span>
+                  <span className="text-sm font-bold text-green-600">{job.matchPercentage}%</span>
+                </div>
+                <Progress value={job.matchPercentage} className="mt-2" />
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Career Services Widgets */}
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Career Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <Button variant="outline" className="h-auto py-4 flex flex-col items-center">
+            <BookOpen className="mb-2 h-6 w-6" />
+            <span>Career Counseling</span>
+          </Button>
+          <Button variant="outline" className="h-auto py-4 flex flex-col items-center">
+            <Briefcase className="mb-2 h-6 w-6" />
+            <span>Job Search Resources</span>
+          </Button>
+          <Button variant="outline" className="h-auto py-4 flex flex-col items-center">
+            <User className="mb-2 h-6 w-6" />
+            <span>Find a Mentor</span>
+          </Button>
+        </div>
+      </section>
+
+      {/* Job Highlights Section */}
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Featured Opportunities</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {featuredJobs.map((job, index) => (
+            <Card key={index}>
+              <CardHeader>
+                <CardTitle>{job.title}</CardTitle>
+                <CardDescription>{job.company}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+                  {job.type}
+                </span>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Quick Links Section */}
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Quick Links</h2>
+        <div className="flex flex-wrap gap-4">
+          <Button variant="secondary">Manage Profile</Button>
+          <Button variant="secondary">Update Resume</Button>
+          <Button variant="secondary">View Applications</Button>
+        </div>
+      </section>
+
+      {/* Notifications Section */}
+      <section>
+        <h2 className="text-2xl font-semibold mb-4">Notifications</h2>
+        <Card>
+          <CardContent className="p-0">
+            <ul className="divide-y divide-gray-200">
+              <li className="p-4 flex items-center">
+                <Bell className="mr-4 h-5 w-5 text-blue-500" />
+                <div>
+                  <p className="font-medium">New job match: Frontend Developer at TechStart</p>
+                  <p className="text-sm text-muted-foreground">2 hours ago</p>
+                </div>
+              </li>
+              <li className="p-4 flex items-center">
+                <Bell className="mr-4 h-5 w-5 text-green-500" />
+                <div>
+                  <p className="font-medium">Your application was viewed by DataCorp</p>
+                  <p className="text-sm text-muted-foreground">1 day ago</p>
+                </div>
+              </li>
+              <li className="p-4 flex items-center">
+                <Bell className="mr-4 h-5 w-5 text-yellow-500" />
+                <div>
+                  <p className="font-medium">New career workshop available: "Mastering the Tech Interview"</p>
+                  <p className="text-sm text-muted-foreground">3 days ago</p>
+                </div>
+              </li>
+            </ul>
+          </CardContent>
+        </Card>
+      </section>
+    </div>
   )
 }
