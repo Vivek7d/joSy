@@ -1,9 +1,4 @@
 "use client";
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   BriefcaseIcon,
   LightbulbIcon,
@@ -19,6 +14,7 @@ import Link from "next/link";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
 import Landing from "@/components/Landing";
+import { useState } from "react";
 
 const poppins = Poppins({
   weight: ["100", "400", "500", "600", "700", "800"],

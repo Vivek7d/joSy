@@ -336,7 +336,7 @@ export default function Landing() {
               className="bg-white p-8 rounded-lg shadow-lg text-center"
             >
               <p className="text-xl italic mb-4">
-                "{testimonials[currentTestimonial].quote}"
+                {testimonials[currentTestimonial].quote}
               </p>
               <p className="font-semibold text-lg mb-1">
                 {testimonials[currentTestimonial].name}

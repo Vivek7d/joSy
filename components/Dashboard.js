@@ -1,16 +1,17 @@
+"use client"
 import React from 'react'
 import { Bell, BookOpen, Briefcase, Search, User } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Progress } from "@/components/ui/progress"
 import { Poppins } from 'next/font/google';
 
 const poppins = Poppins({
   weight: ["100", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
 });
+
 export default function Dashboard() {
   // Mock data - in a real app, this would come from API calls or server-side props
   const user = {
@@ -37,7 +38,10 @@ export default function Dashboard() {
       <section className="mb-8">
         <h1 className="text-3xl font-bold mb-4">Welcome back, Rahul!</h1>
         <div className="flex items-center mb-4">
-          <Progress value={70} className="w-1/2 mr-4" />
+          <div className="relative w-1/2 mr-4">
+            <div className="absolute top-0 left-0 w-full h-1 bg-blue-500" style={{ width: `${user.progress}%` }}></div>
+            <div className="relative bg-gray-200 h-1 w-full"></div>
+          </div>
           <span className="text-sm text-muted-foreground">Profile completion: {user.progress}%</span>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -81,7 +85,10 @@ export default function Dashboard() {
                   <span className="text-sm font-medium">Match:</span>
                   <span className="text-sm font-bold text-green-600">{job.matchPercentage}%</span>
                 </div>
-                <Progress value={job.matchPercentage} className="mt-2" />
+                <div className="relative mt-2">
+                  <div className="absolute top-0 left-0 h-1 bg-green-500" style={{ width: `${job.matchPercentage}%` }}></div>
+                  <div className="relative bg-gray-200 h-1 w-full"></div>
+                </div>
               </CardContent>
             </Card>
           ))}
@@ -160,7 +167,7 @@ export default function Dashboard() {
               <li className="p-4 flex items-center">
                 <Bell className="mr-4 h-5 w-5 text-yellow-500" />
                 <div>
-                  <p className="font-medium">New career workshop available: "Mastering the Tech Interview"</p>
+                  <p className="font-medium">New career workshop available: &quot;Mastering the Tech Interview&quot;</p>
                   <p className="text-sm text-muted-foreground">3 days ago</p>
                 </div>
               </li>
