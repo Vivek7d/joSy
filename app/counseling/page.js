@@ -247,7 +247,7 @@ export default function CounselingServices() {
 
                     <Button
                       onClick={handleBookAppointment}
-                      className="w-full py-2 bg-black text-white rounded-md"
+                      className="w-full py-2 bg-black hover:text-black text-white rounded-md"
                     >
                       Book Appointment
                     </Button>
