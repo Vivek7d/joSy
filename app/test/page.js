@@ -291,8 +291,21 @@ public:
         <div className="w-1/2 p-4">
           <Card className="bg-[#282828] border-[#3e3e3e]">
             <CardHeader>
-              <CardTitle className="text-white">Your Code</CardTitle>
+              <CardTitle className="text-white">Code</CardTitle>
             </CardHeader>
+            <div className="mb-4 ml-6 flex justify-between items-center">
+            <Select value={language} onValueChange={setLanguage}>
+              <SelectTrigger className="w-[180px] bg-[#282828] text-gray-300 border-[#3e3e3e]">
+                <SelectValue placeholder="Select Language" />
+              </SelectTrigger>
+              <SelectContent className="bg-[#282828] text-gray-300 border-[#3e3e3e]">
+                <SelectItem value="c">C</SelectItem>
+                <SelectItem value="cpp">C++</SelectItem>
+                <SelectItem value="java">Java</SelectItem>
+                <SelectItem value="python">Python</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
             <CardContent>
               <AceEditor
                 mode={language}
