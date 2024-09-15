@@ -11,7 +11,7 @@ const poppins = Poppins({
 
 export default function Homepage() {
   return (
-    <div className="flex h-screen space-y-3 bg-gray-100">
+    <div className="flex h-auto space-y-3 bg-gray-100">
       {/* Sidebar */}
       <Navbar />
       <Dashboard />
