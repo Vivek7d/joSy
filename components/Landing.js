@@ -140,6 +140,9 @@ export default function Landing() {
             <Link href="/dashboard" className="text-white hover:text-blue-300">
               Internships
             </Link>
+            <Link href="/coding-test" className="text-white hover:text-blue-300">
+              Coding
+            </Link>
             <Link href="/dashboard" className="text-white hover:text-blue-300">
               Resources
             </Link>
